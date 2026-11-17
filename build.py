@@ -136,7 +136,7 @@ def links(active):
 def header(active):
     return f"""<header class="site">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Everstar home"><img src="img/logo.svg" alt="everstar" width="117" height="40"></a>
+    <a class="logo" href="index.html" aria-label="Everstar home"><picture><source srcset="img/logo-dark.svg" media="(prefers-color-scheme: dark)"><img src="img/logo.svg" alt="everstar" width="190" height="65"></picture></a>
     <nav class="main" aria-label="Main">
       {links(active)}
     </nav>

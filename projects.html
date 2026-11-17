@@ -62,9 +62,10 @@ a{color:inherit}
 /* header */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
-header.site .wrap{display:flex;align-items:center;gap:var(--s2);min-height:76px}
+header.site .wrap{display:flex;align-items:center;gap:var(--s2);min-height:92px}
 .logo{display:block;flex:none}
-.logo img{height:40px;width:auto;display:block}
+.logo img{height:64px;width:auto;display:block}
+@media (max-width:600px){.logo img{height:50px}}
 nav.main{display:flex;gap:6px;margin-left:auto;align-items:center}
 .nav-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-family:var(--font-display);font-weight:500;font-size:.875rem;text-decoration:none;white-space:nowrap;transition:background-color .15s,border-color .15s,color .15s}
 .nav-btn:hover{border-color:var(--green);color:var(--green-ink);background:var(--bg-alt)}
@@ -347,13 +348,13 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 .co-logo{height:36px;width:auto;align-self:flex-start;margin-bottom:var(--s1);background:#FFFFFF;padding:4px 8px;border-radius:var(--r-sm)}
 
 /* keep anchored sections clear of the sticky header */
-section[id],article[id]{scroll-margin-top:calc(84px + env(safe-area-inset-top,0px))}
+section[id],article[id]{scroll-margin-top:calc(100px + env(safe-area-inset-top,0px))}
 </style>
 </head>
 <body>
 <header class="site">
   <div class="wrap">
-    <a class="logo" href="index.html" aria-label="Everstar home"><img src="img/logo.svg" alt="everstar" width="117" height="40"></a>
+    <a class="logo" href="index.html" aria-label="Everstar home"><picture><source srcset="img/logo-dark.svg" media="(prefers-color-scheme: dark)"><img src="img/logo.svg" alt="everstar" width="190" height="65"></picture></a>
     <nav class="main" aria-label="Main">
       <a class="nav-btn" href="index.html">Home</a>
       <a class="nav-btn" href="services.html">Services</a>
