@@ -157,7 +157,7 @@ td.owner{font-weight:600}
 .fact b{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums}
 .fact span{font-size:.8125rem;color:var(--muted)}
 .plain{margin:var(--s3) 0 0;padding-left:1.1em;color:var(--muted);display:flex;flex-direction:column;gap:4px}
-.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3)}
+.certs{display:grid;grid-template-columns:repeat(5,1fr);gap:var(--s3)}
 .cert{border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);display:flex;flex-direction:column;overflow:hidden;min-width:0}
 .cert-logo{background:#FFFFFF;height:136px;display:grid;place-items:center;padding:var(--s2);border-bottom:1px solid var(--line)}
 .cert-logo img{max-height:100px;width:auto;max-width:100%;object-fit:contain}
@@ -165,7 +165,8 @@ td.owner{font-weight:600}
 .cert b{font-family:var(--font-display);font-weight:600;font-size:1.0625rem}
 .cert p{font-size:.9rem;color:var(--muted)}
 .cert span{font-size:.75rem;color:var(--muted);font-family:var(--font-mono);margin-top:var(--s1)}
-@media (max-width:1000px){.certs{grid-template-columns:1fr 1fr}}
+@media (max-width:1100px){.certs{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.certs{grid-template-columns:1fr 1fr}}
 /* logo strip */
 .logostrip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--s3) var(--s6);background:#FFFFFF;border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s3)}
 .logostrip img{height:64px;width:auto}
@@ -299,6 +300,41 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 @media (max-width:1100px){.org-depts{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:820px){.org-depts{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:540px){.org-depts{grid-template-columns:1fr}}
+
+/* client logo walls */
+.clients{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:var(--s2)}
+.client{background:#FFFFFF;border:1px solid var(--line);border-radius:var(--r-md);height:96px;display:grid;place-items:center;padding:var(--s2)}
+.client img{max-height:56px;max-width:100%;width:auto;height:auto;object-fit:contain}
+.clients-h{font-size:1.0625rem;font-weight:600;margin:var(--s6) 0 var(--s2)}
+.clients-h:first-child{margin-top:0}
+
+/* photos on service cards and rows */
+.svc .svc-photo{margin:calc(-1 * var(--s3)) calc(-1 * var(--s3)) 0;aspect-ratio:3/2;overflow:hidden;border-radius:var(--r-md) var(--r-md) 0 0}
+.svc .svc-photo img{width:100%;height:100%;object-fit:cover;display:block}
+.svc-row figure{margin:var(--s3) 0 0;border-radius:var(--r-md);overflow:hidden;aspect-ratio:3/2;max-width:100%}
+.svc-row figure img{width:100%;height:100%;object-fit:cover;display:block}
+
+/* CEO message */
+.ceo{display:grid;grid-template-columns:1.3fr 1fr;gap:var(--s8);align-items:start}
+.ceo > *{min-width:0}
+.ceo blockquote{margin:var(--s3) 0 0;padding:0;font-size:1.0625rem;color:var(--text);display:flex;flex-direction:column;gap:var(--s2)}
+.ceo blockquote p{max-width:62ch}
+.ceo .sign{display:flex;align-items:center;gap:var(--s2);margin-top:var(--s3)}
+.ceo .sign b{font-family:var(--font-display);display:block}
+.ceo .sign span{font-size:.875rem;color:var(--muted)}
+.principles{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s2);counter-reset:pr}
+.principles li{counter-increment:pr;display:grid;grid-template-columns:48px 1fr;gap:var(--s2);align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s2)}
+.principles li::before{content:counter(pr);display:grid;place-items:center;width:48px;height:48px;border-radius:var(--r-sm);background:var(--green);color:#fff;font-family:var(--font-display);font-weight:600;font-size:1.25rem}
+.principles b{font-family:var(--font-display);font-weight:600}
+@media (max-width:900px){.ceo{grid-template-columns:1fr;gap:var(--s6)}}
+
+/* facility machines */
+.machines{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s4)}
+.machines figure{margin:0;background:#FFFFFF;border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s2);display:flex;flex-direction:column;gap:var(--s1)}
+.machines img{width:100%;height:180px;object-fit:contain}
+.machines figcaption{font-size:.8125rem;color:#4B5563}
+@media (max-width:600px){.machines{grid-template-columns:1fr}}
+.co-logo{height:36px;width:auto;align-self:flex-start;margin-bottom:var(--s1);background:#FFFFFF;padding:4px 8px;border-radius:var(--r-sm)}
 </style>
 </head>
 <body>
