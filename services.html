@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Everstar Services</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&family=Open+Sans:wght@400;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+body{margin:0}img{max-width:100%}[hidden]{display:none!important}
+/* Layout: full-bleed bands, 1160px content column, 8pt grid. Corporate skill tokens with Everstar logo colours. */
+:root{
+  --green:#00833F; --green-ink:#006B33; --green-deep:#0B2A1A;
+  --orange:#F47920; --orange-ink:#B5520A;
+  --bg:#FFFFFF; --bg-alt:#F3F6F4; --surface:#FFFFFF;
+  --text:#111827; --muted:#4B5563; --line:#DCE3DE;
+  --on-dark:#FFFFFF; --on-dark-muted:#C9D6CE;
+  --font-display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"Open Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-mono:"IBM Plex Mono",ui-monospace,Consolas,monospace;
+  --r-sm:4px; --r-md:8px;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s6:48px; --s8:64px; --s12:96px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --green:#3DB872; --green-ink:#5CCB8A; --green-deep:#06140C;
+  --orange:#F7924A; --orange-ink:#F7924A;
+  --bg:#0E1411; --bg-alt:#141C17; --surface:#18221C;
+  --text:#E8EEEA; --muted:#A7B4AC; --line:#26332B;
+  --on-dark:#FFFFFF; --on-dark-muted:#C9D6CE; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --green:#3DB872; --green-ink:#5CCB8A; --green-deep:#06140C;
+  --orange:#F7924A; --orange-ink:#F7924A;
+  --bg:#0E1411; --bg-alt:#141C17; --surface:#18221C;
+  --text:#E8EEEA; --muted:#A7B4AC; --line:#26332B;
+  --on-dark:#FFFFFF; --on-dark-muted:#C9D6CE; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--text);font-family:var(--font-body);font-size:16px;line-height:1.65}
+h1,h2,h3{font-family:var(--font-display);line-height:1.2;text-wrap:balance;margin:0}
+p{margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--orange);outline-offset:2px;border-radius:2px}
+
+.wrap{max-width:1160px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.band{padding-block:var(--s12)}
+.band.alt{background:var(--bg-alt)}
+.eyebrow{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--orange-ink)}
+.h2{font-size:clamp(1.75rem,3.2vw,2.5rem);font-weight:600;margin-top:var(--s1)}
+.lede{color:var(--muted);max-width:62ch;margin-top:var(--s2);font-size:1.0625rem}
+.head{margin-bottom:var(--s6)}
+
+/* draft notice */
+.draft{background:var(--orange);color:#1A0D02;font-size:.8125rem;font-weight:600}
+.draft .wrap{padding-block:6px;text-align:center}
+
+/* header */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;gap:var(--s3);min-height:72px}
+.logo{display:block;flex:none}
+.logo img{height:40px;width:auto;display:block}
+nav.main{display:flex;gap:var(--s3);margin-left:auto;flex-wrap:wrap}
+nav.main a{text-decoration:none;font-weight:600;font-size:.9375rem;color:var(--text);padding-block:var(--s1)}
+nav.main a:hover{color:var(--green-ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);min-height:44px;padding:0 var(--s3);border-radius:var(--r-sm);font-family:var(--font-display);font-weight:600;font-size:.9375rem;text-decoration:none;border:2px solid transparent;cursor:pointer}
+.btn.primary{background:var(--orange);color:#1A0D02}
+.btn.primary:hover{background:#FF8A33}
+.btn.ghost{border-color:currentColor;color:var(--on-dark)}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.btn.green{background:var(--green);color:#fff}
+.btn.green:hover{background:var(--green-ink)}
+nav.main a[aria-current="page"]{color:var(--green-ink);box-shadow:inset 0 -3px 0 var(--orange)}
+details.menu{display:none;position:relative}
+details.menu summary{list-style:none;cursor:pointer;min-height:44px;min-width:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--r-sm);font-weight:600;font-size:.875rem;padding:0 12px}
+details.menu summary::-webkit-details-marker{display:none}
+details.menu nav{position:absolute;right:0;top:calc(100% + 8px);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:0 12px 32px rgba(0,0,0,.18);display:flex;flex-direction:column;min-width:220px;padding:var(--s1)}
+details.menu nav a{text-decoration:none;padding:12px var(--s2);font-weight:600;border-radius:var(--r-sm)}
+details.menu nav a:hover{background:var(--bg-alt)}
+details.menu nav a[aria-current="page"]{color:var(--green-ink)}
+@media (max-width:900px){nav.main{display:none} details.menu{display:block;margin-left:auto}}
+@media (max-width:480px){header.site .btn.primary{display:none}}
+
+/* hero */
+.hero{position:relative;color:var(--on-dark);background:#0B2A1A url("img/hero-refinery.jpg") center/cover no-repeat}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,20,12,.94) 0%,rgba(6,20,12,.82) 45%,rgba(6,20,12,.35) 100%)}
+.hero .wrap{position:relative;padding-block:var(--s12) var(--s8)}
+.hero h1{font-size:clamp(2.1rem,5vw,3.5rem);font-weight:700;max-width:18ch;margin-top:var(--s2)}
+.hero h1 em{font-style:normal;color:var(--orange)}
+.hero p.sub{color:var(--on-dark-muted);max-width:56ch;margin-top:var(--s3);font-size:1.125rem}
+.hero .eyebrow{color:#FFB37A}
+.cta-row{display:flex;flex-wrap:wrap;gap:var(--s2);margin-top:var(--s4)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:var(--s8);border-top:1px solid rgba(255,255,255,.22)}
+.stat{padding:var(--s3) var(--s3) 0 0}
+.stat b{display:block;font-family:var(--font-display);font-size:clamp(1.75rem,3.4vw,2.5rem);font-weight:600;font-variant-numeric:tabular-nums;color:#fff}
+.stat span{font-size:.875rem;color:var(--on-dark-muted)}
+@media (max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3)}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s3);display:flex;flex-direction:column;gap:var(--s2);min-width:0}
+.svc .ico{width:48px;height:48px;color:var(--green)}
+.svc h3{font-size:1.1875rem;font-weight:600}
+.svc p{color:var(--muted);font-size:.9375rem}
+.svc ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font-size:.875rem;margin-top:auto;border-top:1px solid var(--line);padding-top:var(--s2)}
+.svc li{display:flex;gap:var(--s1)}
+.svc li::before{content:"";flex:none;width:6px;height:6px;margin-top:9px;background:var(--orange);border-radius:1px}
+@media (max-width:1000px){.services{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.services{grid-template-columns:1fr}}
+
+/* CUI section */
+.cui{display:grid;grid-template-columns:1.05fr 1fr;gap:var(--s8);align-items:center}
+.cui > *{min-width:0}
+.layers{list-style:none;margin:var(--s4) 0 0;padding:0;display:flex;flex-direction:column;gap:var(--s2)}
+.layers li{display:grid;grid-template-columns:32px 1fr;gap:var(--s2);align-items:start}
+.layers .k{font-family:var(--font-mono);font-size:.75rem;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;border:2px solid var(--green);color:var(--green-ink);font-weight:500}
+.layers strong{display:block;font-family:var(--font-display);font-weight:600}
+.layers span{color:var(--muted);font-size:.9375rem}
+.xsec{width:100%;max-width:460px;height:auto;display:block;margin-inline:auto}
+.xsec text{font-family:var(--font-mono);font-size:11px;fill:var(--text)}
+.xsec .lead{stroke:var(--muted);stroke-width:1}
+.cap{font-family:var(--font-mono);font-size:.75rem;color:var(--muted);text-align:center;margin-top:var(--s1)}
+@media (max-width:900px){.cui{grid-template-columns:1fr;gap:var(--s6)}}
+
+/* sectors */
+.sectors{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.sector{position:relative;border-radius:var(--r-md);overflow:hidden;color:var(--on-dark);min-height:420px;display:flex;align-items:flex-end;background:#0B2A1A center/cover no-repeat}
+.sector::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,20,12,.15) 0%,rgba(6,20,12,.92) 62%)}
+.sector .in{position:relative;padding:var(--s4);display:flex;flex-direction:column;gap:var(--s2)}
+.sector h3{font-size:1.5rem;font-weight:600}
+.sector p{color:var(--on-dark-muted);font-size:.9375rem;max-width:48ch}
+.chips{display:flex;flex-wrap:wrap;gap:var(--s1);margin:0;padding:0;list-style:none}
+.chips li{font-size:.8125rem;padding:4px 10px;border:1px solid rgba(255,255,255,.35);border-radius:var(--r-sm)}
+.sector.on{background-image:url("img/onshore.jpg")}
+.sector.off{background-image:url("img/offshore.jpg")}
+@media (max-width:800px){.sectors{grid-template-columns:1fr}}
+
+/* projects */
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface)}
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s4)}
+.proj-grid > *{min-width:0}
+.tbl-h{font-size:1.0625rem;font-weight:600;display:flex;align-items:center;gap:var(--s1);flex-wrap:wrap;margin-bottom:var(--s2)}
+@media (max-width:1000px){.proj-grid{grid-template-columns:1fr}}
+table{width:100%;border-collapse:collapse;font-size:.9375rem;min-width:460px}
+th,td{text-align:left;padding:14px var(--s3);border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--font-mono);font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--bg-alt)}
+tr:last-child td{border-bottom:0}
+td.owner{font-weight:600}
+.tag{display:inline-block;font-family:var(--font-mono);font-size:.6875rem;letter-spacing:.06em;text-transform:uppercase;padding:2px 8px;border-radius:var(--r-sm);background:var(--bg-alt);color:var(--green-ink);border:1px solid var(--line);white-space:nowrap}
+.note{font-size:.8125rem;color:var(--muted);margin-top:var(--s2)}
+
+/* capability grid */
+.cap-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)}
+.cap-grid > *{min-width:0}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin-top:var(--s4)}
+.fact{border-left:3px solid var(--orange);padding-left:var(--s2)}
+.fact b{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums}
+.fact span{font-size:.8125rem;color:var(--muted)}
+.plain{margin:var(--s3) 0 0;padding-left:1.1em;color:var(--muted);display:flex;flex-direction:column;gap:4px}
+.certs{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s4)}
+.cert{border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s2) var(--s3);background:var(--surface)}
+.cert b{font-family:var(--font-display);font-weight:600;display:block}
+.cert span{font-size:.8125rem;color:var(--muted);font-family:var(--font-mono)}
+@media (max-width:900px){.cap-grid{grid-template-columns:1fr;gap:var(--s6)}}
+@media (max-width:480px){.facts{grid-template-columns:1fr}.certs{grid-template-columns:1fr}}
+
+/* group */
+.group{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3)}
+.co{padding:var(--s3);border-top:3px solid var(--green);background:var(--surface);border-radius:0 0 var(--r-md) var(--r-md);border-inline:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:var(--s1);min-width:0}
+.co .cc{font-family:var(--font-mono);font-size:.75rem;color:var(--orange-ink);letter-spacing:.08em}
+.co h3{font-size:1.0625rem;font-weight:600}
+.co p{font-size:.9rem;color:var(--muted)}
+.co.lead-co{border-top-color:var(--orange)}
+@media (max-width:1000px){.group{grid-template-columns:1fr 1fr}}
+@media (max-width:560px){.group{grid-template-columns:1fr}}
+
+.people{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3);margin-top:var(--s6)}
+.person{display:grid;grid-template-columns:56px 1fr;gap:var(--s2);align-items:start}
+.av{width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;display:grid;place-items:center;font-family:var(--font-display);font-weight:600}
+.person h3{font-size:1.0625rem;font-weight:600}
+.person .role{font-size:.8125rem;font-family:var(--font-mono);color:var(--orange-ink);letter-spacing:.04em}
+.person p{font-size:.9rem;color:var(--muted);margin-top:var(--s1)}
+@media (max-width:700px){.people{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--green-deep);color:var(--on-dark)}
+.contact .h2{color:#fff}
+.contact .lede{color:var(--on-dark-muted)}
+.contact .eyebrow{color:#FFB37A}
+.c-grid{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:var(--s6)}
+.c-grid > *{min-width:0}
+.office h3{font-size:1.0625rem;font-weight:600;color:#fff}
+.office .cc{font-family:var(--font-mono);font-size:.75rem;color:#FFB37A;letter-spacing:.08em}
+.office address{font-style:normal;color:var(--on-dark-muted);margin-top:var(--s1);font-size:.9375rem}
+.office dl{display:grid;grid-template-columns:auto 1fr;gap:4px var(--s2);margin:var(--s2) 0 0;font-size:.9375rem}
+.office dt{color:var(--on-dark-muted);font-family:var(--font-mono);font-size:.75rem;padding-top:3px}
+.office dd{margin:0;user-select:all;overflow-wrap:anywhere}
+form.enq{display:flex;flex-direction:column;gap:var(--s2);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:var(--r-md);padding:var(--s3)}
+form.enq label{font-size:.8125rem;font-weight:600;display:flex;flex-direction:column;gap:6px;color:var(--on-dark-muted)}
+form.enq input,form.enq select,form.enq textarea{font:inherit;font-size:.9375rem;color:var(--text);background:var(--bg);border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 12px;min-height:44px;width:100%}
+form.enq textarea{min-height:96px;resize:vertical}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2)}
+.form-msg{font-size:.875rem;color:#FFB37A;min-height:1.4em}
+@media (max-width:1000px){.c-grid{grid-template-columns:1fr 1fr}.c-grid form{grid-column:1/-1}}
+@media (max-width:600px){.c-grid{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+
+footer.site{background:var(--green-deep);color:var(--on-dark-muted);font-size:.8125rem;border-top:1px solid rgba(255,255,255,.12)}
+footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--s2);justify-content:space-between}
+
+/* sub-page banner */
+.pagehead{position:relative;color:var(--on-dark);background:#0B2A1A center/cover no-repeat}
+.pagehead::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,20,12,.95) 0%,rgba(6,20,12,.8) 55%,rgba(6,20,12,.45) 100%)}
+.pagehead .wrap{position:relative;padding-block:var(--s8)}
+.pagehead h1{font-size:clamp(2rem,4.4vw,3rem);font-weight:700;margin-top:var(--s1);max-width:22ch}
+.pagehead p{color:var(--on-dark-muted);max-width:60ch;margin-top:var(--s2);font-size:1.0625rem}
+.pagehead .eyebrow{color:#FFB37A}
+.crumb{font-size:.8125rem;color:var(--on-dark-muted);margin-bottom:var(--s2)}
+.crumb a{color:#fff}
+
+/* service detail rows */
+.svc-rows{display:flex;flex-direction:column;gap:var(--s8)}
+.svc-row{display:grid;grid-template-columns:280px 1fr;gap:var(--s6);padding-top:var(--s6);border-top:1px solid var(--line)}
+.svc-row:first-child{border-top:0;padding-top:0}
+.svc-row > *{min-width:0}
+.svc-row .ico{width:56px;height:56px;color:var(--green)}
+.svc-row h2{font-size:1.625rem;font-weight:600;margin-top:var(--s2)}
+.svc-row .k{font-family:var(--font-mono);font-size:.75rem;color:var(--orange-ink);letter-spacing:.08em;margin-top:var(--s1)}
+.svc-row p{color:var(--muted)}
+.svc-row .body{display:flex;flex-direction:column;gap:var(--s3)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:var(--s3)}
+.two-col h3{font-size:.8125rem;font-family:var(--font-mono);font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:var(--s1)}
+.ticks{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:.9375rem}
+.ticks li{display:flex;gap:var(--s1)}
+.ticks li::before{content:"";flex:none;width:6px;height:6px;margin-top:10px;background:var(--orange);border-radius:1px}
+@media (max-width:800px){.svc-row{grid-template-columns:1fr;gap:var(--s3)}.two-col{grid-template-columns:1fr}}
+
+/* teaser cards & CTA band */
+.teasers{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3)}
+.teaser{display:flex;flex-direction:column;gap:var(--s1);padding:var(--s3);border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);text-decoration:none;min-width:0}
+.teaser:hover{border-color:var(--green)}
+.teaser h3{font-size:1.125rem;font-weight:600}
+.teaser p{color:var(--muted);font-size:.9375rem}
+.teaser .go{margin-top:auto;padding-top:var(--s1);font-weight:600;color:var(--green-ink);font-size:.9375rem}
+@media (max-width:900px){.teasers{grid-template-columns:1fr}}
+.more{display:inline-flex;margin-top:var(--s3);font-weight:600;color:var(--green-ink);text-decoration:none;min-height:44px;align-items:center}
+.more:hover{text-decoration:underline}
+.ctaband{background:var(--green);color:#fff}
+.ctaband .wrap{padding-block:var(--s6);display:flex;flex-wrap:wrap;gap:var(--s3);align-items:center;justify-content:space-between}
+.ctaband h2{font-size:clamp(1.375rem,2.6vw,1.875rem);font-weight:600;max-width:30ch}
+.ctaband p{color:#E3F2E9;margin-top:6px}
+
+/* team by country */
+.teamtbl td.n,.teamtbl th.n{text-align:right;font-variant-numeric:tabular-nums}
+.teamtbl tfoot td{font-weight:600;background:var(--bg-alt);border-top:2px solid var(--line)}
+.timeline{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:var(--s3);border-left:2px solid var(--line);padding-left:var(--s3)}
+.timeline li{position:relative}
+.timeline li::before{content:"";position:absolute;left:calc(-1 * var(--s3) - 7px);top:6px;width:12px;height:12px;border-radius:50%;background:var(--orange)}
+.timeline b{font-family:var(--font-display);display:block}
+.timeline span{color:var(--muted);font-size:.9375rem}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)}
+.split > *{min-width:0}
+@media (max-width:900px){.split{grid-template-columns:1fr;gap:var(--s6)}}
+</style>
+</head>
+<body>
+<div class="draft"><div class="wrap">Draft for review. Not the live website. Content taken from the July 2025 company presentation, business card and everstar.sg.</div></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Everstar home"><img src="img/logo.svg" alt="everstar" width="117" height="40"></a>
+    <nav class="main" aria-label="Main">
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <details class="menu">
+      <summary aria-label="Open menu">Menu</summary>
+      <nav aria-label="Main (mobile)">
+      <a href="index.html">Home</a>
+      <a href="services.html" aria-current="page">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      </nav>
+    </details>
+    <a class="btn primary" href="contact.html">Request a quote</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="pagehead" style="background-image:url('img/onshore.jpg')" aria-labelledby="ph">
+  <div class="wrap">
+    <div class="crumb"><a href="index.html">Home</a> / Services</div>
+    <div class="eyebrow">Services</div>
+    <h1 id="ph">The full range of non-mechanical maintenance</h1>
+    <p>Access, insulation, coating and passive fire protection, supplied and installed by one contractor with its own fabrication shop and engineering team.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap svc-rows">
+    <article class="svc-row" id="insulation">
+      <div>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="24" cy="24" r="20"/><circle cx="24" cy="24" r="13" stroke-dasharray="3 3"/><circle cx="24" cy="24" r="7"/></svg>
+        <h2>Insulation</h2>
+        <div class="k">THERMAL · ACOUSTIC · CRYOGENIC</div>
+      </div>
+      <div class="body">
+        <p>We fabricate and install insulation for hot, cold and cryogenic service on piping, vessels, tanks and equipment, including LNG duty. Jacketing is cut and formed in our own workshop and materials are pre-cut before they reach site, which shortens installation time.</p>
+        <div class="two-col">
+          <div><h3>Systems</h3><ul class="ticks"><li>Hot and cold thermal insulation</li><li>Acoustic insulation</li><li>Cryogenic and LNG insulation</li><li>Fire-rated insulation</li><li>Personnel protection</li></ul></div>
+          <div><h3>Delivery</h3><ul class="ticks"><li>New-build projects and revamps</li><li>Plant maintenance and shutdowns</li><li>Insulation jacket fabrication</li><li>NORSOK-trained insulators</li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc-row" id="coating">
+      <div>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><rect x="6" y="10" width="36" height="28" rx="2"/><path d="M6 20h36M6 29h36"/><path d="M14 10v-4M34 10v-4"/></svg>
+        <h2>Surface treatment &amp; coating</h2>
+        <div class="k">CORROSION PROTECTION</div>
+      </div>
+      <div class="body">
+        <p>On-site surface preparation, protective coating and inspection. Coating is usually the first layer of a CUI-resistant insulation system, so we plan it together with the insulation and access work.</p>
+        <div class="two-col">
+          <div><h3>Scope</h3><ul class="ticks"><li>Surface preparation and blasting</li><li>Protective coating application</li><li>Coating under insulation</li><li>Touch-up and maintenance painting</li></ul></div>
+          <div><h3>Quality</h3><ul class="ticks"><li>SSPC-qualified personnel</li><li>Inspection and documentation</li><li>Work to manufacturer and owner specifications</li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc-row" id="access">
+      <div>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M10 4v40M38 4v40M10 14h28M10 26h28M10 38h28M10 14l28 12M10 26l28 12"/></svg>
+        <h2>Access &amp; scaffolding</h2>
+        <div class="k">MOM-CERTIFIED SCAFFOLDERS</div>
+      </div>
+      <div class="body">
+        <p>Scaffolding planned around the insulation and coating sequence, so the access is up when the trades arrive and comes down when they finish. Combined with our other services, it is offered as Scaffolding, Insulation &amp; Painting (SIP).</p>
+        <div class="two-col">
+          <div><h3>Scope</h3><ul class="ticks"><li>Scaffold design, erection and dismantling</li><li>Access for shutdowns and turnarounds</li><li>Integrated SIP packages</li></ul></div>
+          <div><h3>Resources</h3><ul class="ticks"><li>MoM-certified scaffolders</li><li>15,000 sq ft scaffold storage and service yard</li></ul></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="svc-row" id="pfp">
+      <div>
+        <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M8 40V12h6v28M8 12h32M8 40h32M34 12v28"/><path d="M24 34c-4 0-6-3-6-6 0-4 4-6 4-10 3 2 8 5 8 10 0 3-2 6-6 6z"/></svg>
+        <h2>Passive fire protection</h2>
+        <div class="k">INTUMESCENT · CEMENTITIOUS</div>
+      </div>
+      <div class="body">
+        <p>We are an approved applicator for leading PFP manufacturers, protecting structural steel and equipment on onshore plants and offshore units.</p>
+        <div class="two-col">
+          <div><h3>Systems</h3><ul class="ticks"><li>Intumescent PFP</li><li>Cementitious PFP</li></ul></div>
+          <div><h3>Where</h3><ul class="ticks"><li>Process plants</li><li>FPSOs, platforms and living quarters</li></ul></div>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="band alt" id="cui" aria-labelledby="cui-h">
+  <div class="wrap cui">
+    <div>
+      <div class="eyebrow">Engineering</div>
+      <h2 class="h2" id="cui-h">Corrosion under insulation, designed out</h2>
+      <p class="lede">CUI starts when the coating, insulation and jacketing are chosen separately. We specify them as one system with the coating and insulation manufacturers, then install it to a method that protects its service life.</p>
+      <ol class="layers">
+        <li><span class="k">1</span><div><strong>Anti-corrosion coating</strong><span>Selected for operating temperature and cyclic wet/dry exposure.</span></div></li>
+        <li><span class="k">2</span><div><strong>Insulation</strong><span>Material and thickness optimised to the process requirement, including LNG and cryogenic duty.</span></div></li>
+        <li><span class="k">3</span><div><strong>Jacketing &amp; sealing</strong><span>Metal cladding fabricated in our own workshop and sealed to keep water out.</span></div></li>
+      </ol>
+    </div>
+    <figure style="margin:0">
+      <svg class="xsec" viewBox="0 0 460 340" role="img" aria-labelledby="xsec-t">
+        <title id="xsec-t">Cross-section of an insulated pipe: steel pipe, coating, insulation and metal jacket</title>
+        <circle cx="170" cy="170" r="150" fill="#B9C2BD" stroke="#7D8781" stroke-width="2"/>
+        <circle cx="170" cy="170" r="144" fill="#E9D9A6"/>
+        <circle cx="170" cy="170" r="144" fill="none" stroke="#C9B57A" stroke-width="1" stroke-dasharray="2 6"/>
+        <circle cx="170" cy="170" r="118" fill="none" stroke="#C9B57A" stroke-width="1" stroke-dasharray="2 6"/>
+        <circle cx="170" cy="170" r="92" fill="#F47920"/>
+        <circle cx="170" cy="170" r="86" fill="#5A6470"/>
+        <circle cx="170" cy="170" r="70" fill="#0B2A1A"/>
+        <text x="170" y="174" text-anchor="middle" style="fill:#C9D6CE">PROCESS</text>
+        <line class="lead" x1="296" y1="80" x2="350" y2="56"/><text x="354" y="60">Jacket</text>
+        <line class="lead" x1="290" y1="140" x2="350" y2="120"/><text x="354" y="124">Insulation</text>
+        <line class="lead" x1="252" y1="190" x2="350" y2="196"/><text x="354" y="200">Coating</text>
+        <line class="lead" x1="236" y1="236" x2="350" y2="270"/><text x="354" y="274">Steel pipe</text>
+      </svg>
+      <figcaption class="cap">Typical CUI-resistant insulation build-up (illustrative)</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="eng-h">
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">Insulation design</div>
+      <h2 class="h2" id="eng-h">Engineering before installation</h2>
+      <p class="lede">For LNG, cryogenic and other demanding process conditions, we prepare optimised insulation designs with detailed engineering and installation procedures, then build to them.</p>
+    </div>
+    <div>
+      <ul class="ticks" style="margin-top:var(--s4)">
+        <li>Optimised insulation design for LNG and cryogenic service</li>
+        <li>Design to process requirements with detailed engineering</li>
+        <li>Written installation procedures</li>
+        <li>Coating and insulation systems selected with manufacturers</li>
+        <li>Installation methods that extend the system's life cycle</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="ctaband" aria-label="Request a quote">
+  <div class="wrap">
+    <div><h2>Planning a shutdown or a new build?</h2><p>Send us the scope and schedule and we'll prepare a proposal.</p></div>
+    <a class="btn primary" href="contact.html">Request a quote</a>
+  </div>
+</section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <span>© 2026 Everstar Engineering &amp; Services Pte Ltd · BRN 200819367H</span>
+    <span>+65 6862 3563 · mail@everstar.com.sg</span>
+    <span>Singapore · Malaysia · Indonesia</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var f = document.getElementById('enq');
+  if (!f) return;
+  f.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var msg = document.getElementById('form-msg');
+    var name = document.getElementById('f-name'), email = document.getElementById('f-email');
+    if (!name.value.trim()) { msg.textContent = 'Enter your name.'; name.focus(); return; }
+    if (!email.checkValidity() || !email.value.trim()) { msg.textContent = 'Enter a valid work email, like name@company.com.'; email.focus(); return; }
+    msg.textContent = 'Draft only: this form is not connected yet, so nothing was sent.';
+  });
+})();
+</script>
+</body>
+</html>
