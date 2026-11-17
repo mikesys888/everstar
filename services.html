@@ -224,11 +224,16 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
 /* sub-page banner */
 .pagehead{position:relative;color:var(--on-dark);background:#0B2A1A center/cover no-repeat}
 .pagehead::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,20,12,.95) 0%,rgba(6,20,12,.8) 55%,rgba(6,20,12,.45) 100%)}
-.pagehead .wrap{position:relative;padding-block:var(--s8)}
-.pagehead h1{font-size:clamp(2rem,4.4vw,3rem);font-weight:700;margin-top:var(--s1);max-width:22ch}
-.pagehead p{color:var(--on-dark-muted);max-width:60ch;margin-top:var(--s2);font-size:1.0625rem}
+.pagehead .wrap{position:relative;padding-block:var(--s8) var(--s6)}
+.pagehead h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.05;letter-spacing:-.01em;margin-top:var(--s1)}
+.pagehead h1::after{content:"";display:block;width:56px;height:4px;border-radius:2px;background:var(--orange);margin-top:var(--s3)}
+.pagehead .tagline{font-family:var(--font-display);font-weight:500;font-size:clamp(1.25rem,2.4vw,1.625rem);line-height:1.35;color:#FFFFFF;max-width:34ch;margin-top:var(--s3);text-wrap:balance}
+.pagehead .desc{color:var(--on-dark-muted);max-width:60ch;margin-top:var(--s2);font-size:1.0625rem}
 .pagehead .eyebrow{color:#FFB37A}
-.crumb{font-size:.8125rem;color:var(--on-dark-muted);margin-bottom:var(--s2)}
+.jump{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s4)}
+.jump a{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#FFFFFF;text-decoration:none;font-family:var(--font-display);font-weight:500;font-size:.875rem;background:rgba(255,255,255,.06)}
+.jump a:hover{background:rgba(255,255,255,.16);border-color:#FFFFFF}
+.crumb{font-size:.8125rem;color:var(--on-dark-muted);margin-bottom:var(--s3)}
 .crumb a{color:#fff}
 
 /* service detail rows */
@@ -340,6 +345,9 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 .machines figcaption{font-size:.8125rem;color:#4B5563}
 @media (max-width:600px){.machines{grid-template-columns:1fr}}
 .co-logo{height:36px;width:auto;align-self:flex-start;margin-bottom:var(--s1);background:#FFFFFF;padding:4px 8px;border-radius:var(--r-sm)}
+
+/* keep anchored sections clear of the sticky header */
+section[id],article[id]{scroll-margin-top:calc(84px + env(safe-area-inset-top,0px))}
 </style>
 </head>
 <body>
@@ -373,9 +381,11 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 <section class="pagehead" style="background-image:url('img/onshore.jpg')" aria-labelledby="ph">
   <div class="wrap">
     <div class="crumb"><a href="index.html">Home</a> / Services</div>
-    <div class="eyebrow">Services</div>
-    <h1 id="ph">The full range of non-mechanical maintenance</h1>
-    <p>Access, insulation, coating, passive fire protection and refractory works, supplied and installed by one contractor with its own fabrication shop and engineering services.</p>
+    <div class="eyebrow">Everstar Engineering &amp; Services</div>
+    <h1 id="ph">Our Services</h1>
+    <p class="tagline">Insulation, coating, scaffolding, fire protection and refractory works from one contractor</p>
+    <p class="desc">Supplied and installed by our own teams, backed by in-house fabrication and engineering services.</p>
+    <nav class="jump" aria-label="On this page"><a href="#insulation">Insulation</a><a href="#coating">Coating</a><a href="#access">Scaffolding</a><a href="#pfp">Fire protection</a><a href="#refractory">Refractory</a><a href="#cui">CUI engineering</a></nav>
   </div>
 </section>
 
@@ -465,7 +475,7 @@ form.enq button:disabled{opacity:.7;cursor:wait}
   <div class="wrap cui">
     <div>
       <div class="eyebrow">Engineering services</div>
-      <h2 class="h2" id="cui-h">Corrosion under insulation, designed out</h2>
+      <h2 class="h2" id="cui-h">Corrosion under insulation (CUI), designed out</h2>
       <p class="lede">CUI starts when the coating, insulation and jacketing are chosen separately. We specify them as one system with the coating and insulation manufacturers, then install it to a method that protects its service life.</p>
       <ol class="layers">
         <li><span class="k">1</span><div><strong>Anti-corrosion coating</strong><span>Selected for operating temperature and cyclic wet/dry exposure.</span></div></li>
@@ -498,7 +508,7 @@ form.enq button:disabled{opacity:.7;cursor:wait}
   <div class="wrap split">
     <div>
       <div class="eyebrow">Engineering services</div>
-      <h2 class="h2" id="eng-h">Engineering before installation</h2>
+      <h2 class="h2" id="eng-h">Insulation design for LNG and cryogenic service</h2>
       <p class="lede">For LNG, cryogenic and other demanding process conditions, we prepare optimised insulation designs with detailed engineering and installation procedures, then build to them.</p>
     </div>
     <div>

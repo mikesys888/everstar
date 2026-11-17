@@ -224,11 +224,16 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
 /* sub-page banner */
 .pagehead{position:relative;color:var(--on-dark);background:#0B2A1A center/cover no-repeat}
 .pagehead::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,20,12,.95) 0%,rgba(6,20,12,.8) 55%,rgba(6,20,12,.45) 100%)}
-.pagehead .wrap{position:relative;padding-block:var(--s8)}
-.pagehead h1{font-size:clamp(2rem,4.4vw,3rem);font-weight:700;margin-top:var(--s1);max-width:22ch}
-.pagehead p{color:var(--on-dark-muted);max-width:60ch;margin-top:var(--s2);font-size:1.0625rem}
+.pagehead .wrap{position:relative;padding-block:var(--s8) var(--s6)}
+.pagehead h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.05;letter-spacing:-.01em;margin-top:var(--s1)}
+.pagehead h1::after{content:"";display:block;width:56px;height:4px;border-radius:2px;background:var(--orange);margin-top:var(--s3)}
+.pagehead .tagline{font-family:var(--font-display);font-weight:500;font-size:clamp(1.25rem,2.4vw,1.625rem);line-height:1.35;color:#FFFFFF;max-width:34ch;margin-top:var(--s3);text-wrap:balance}
+.pagehead .desc{color:var(--on-dark-muted);max-width:60ch;margin-top:var(--s2);font-size:1.0625rem}
 .pagehead .eyebrow{color:#FFB37A}
-.crumb{font-size:.8125rem;color:var(--on-dark-muted);margin-bottom:var(--s2)}
+.jump{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s4)}
+.jump a{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#FFFFFF;text-decoration:none;font-family:var(--font-display);font-weight:500;font-size:.875rem;background:rgba(255,255,255,.06)}
+.jump a:hover{background:rgba(255,255,255,.16);border-color:#FFFFFF}
+.crumb{font-size:.8125rem;color:var(--on-dark-muted);margin-bottom:var(--s3)}
 .crumb a{color:#fff}
 
 /* service detail rows */
@@ -340,6 +345,9 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 .machines figcaption{font-size:.8125rem;color:#4B5563}
 @media (max-width:600px){.machines{grid-template-columns:1fr}}
 .co-logo{height:36px;width:auto;align-self:flex-start;margin-bottom:var(--s1);background:#FFFFFF;padding:4px 8px;border-radius:var(--r-sm)}
+
+/* keep anchored sections clear of the sticky header */
+section[id],article[id]{scroll-margin-top:calc(84px + env(safe-area-inset-top,0px))}
 </style>
 </head>
 <body>
@@ -372,8 +380,8 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 <main id="top">
 <section class="hero" aria-labelledby="hero-h">
   <div class="wrap">
-    <div class="eyebrow">Non-mechanical maintenance · Since 2008</div>
-    <h1 id="hero-h">Insulation, access, coating and fire protection for plants that <em>can't stop</em>.</h1>
+    <div class="eyebrow">Since 2008 · Singapore · Malaysia · Indonesia</div>
+    <h1 id="hero-h">Insulation, scaffolding, coating and fire protection for <em>process and offshore plants</em></h1>
     <p class="sub">Everstar is a turnkey supply-and-install contractor for oil &amp; gas, petrochemical, LNG, pharmaceutical and marine &amp; offshore projects across Singapore, Malaysia and Indonesia.</p>
     <div class="cta-row">
       <a class="btn primary" href="contact.html">Request a quote</a>
@@ -392,7 +400,7 @@ form.enq button:disabled{opacity:.7;cursor:wait}
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">What we do</div>
-      <h2 class="h2" id="svc-h">Four trades, one contractor</h2>
+      <h2 class="h2" id="svc-h">One contractor for every non-mechanical trade</h2>
       <p class="lede">Insulation, surface treatment, scaffolding and passive fire protection share the same work fronts. Running them under one team means fewer interfaces, one safety system and one schedule.</p>
     </div>
     <div class="services">
@@ -429,7 +437,7 @@ form.enq button:disabled{opacity:.7;cursor:wait}
   <div class="wrap">
     <div class="head">
       <div class="eyebrow">Where we work</div>
-      <h2 class="h2" id="sec-h">Onshore plants and offshore yards</h2>
+      <h2 class="h2" id="sec-h">Serving onshore plants and offshore yards</h2>
     </div>
     <div class="sectors">
       <article class="sector on">
@@ -479,8 +487,8 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 <section class="band alt" aria-labelledby="why-h">
   <div class="wrap">
     <div class="head">
-      <div class="eyebrow">Why Everstar</div>
-      <h2 class="h2" id="why-h">Built to deliver on site</h2>
+      <div class="eyebrow">Our strengths</div>
+      <h2 class="h2" id="why-h">Why clients choose Everstar</h2>
     </div>
     <div class="teasers">
       <a class="teaser" href="services.html#cui"><h3>CUI engineering</h3><p>Coating, insulation and jacketing specified as one system, with optimised designs for LNG and cryogenic service.</p><span class="go">How we design out CUI →</span></a>
@@ -493,8 +501,8 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 <section class="band" aria-labelledby="cert-h" style="padding-block:var(--s8)">
   <div class="wrap">
     <div class="head" style="margin-bottom:var(--s3)">
-      <div class="eyebrow">Certified</div>
-      <h2 class="h2" id="cert-h" style="font-size:1.5rem">ISO 9001, ISO 45001, bizSAFE Star and ASPRI member</h2>
+      <div class="eyebrow">Certifications</div>
+      <h2 class="h2" id="cert-h" style="font-size:1.5rem">Certified for quality, health and safety</h2>
     </div>
     <a class="logostrip" href="about.html#certifications" aria-label="View our certifications">
       <img src="img/certs/iso-9001.png" alt="ISO 9001" width="160" height="200">

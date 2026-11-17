@@ -207,11 +207,16 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
 /* sub-page banner */
 .pagehead{position:relative;color:var(--on-dark);background:#0B2A1A center/cover no-repeat}
 .pagehead::before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,20,12,.95) 0%,rgba(6,20,12,.8) 55%,rgba(6,20,12,.45) 100%)}
-.pagehead .wrap{position:relative;padding-block:var(--s8)}
-.pagehead h1{font-size:clamp(2rem,4.4vw,3rem);font-weight:700;margin-top:var(--s1);max-width:22ch}
-.pagehead p{color:var(--on-dark-muted);max-width:60ch;margin-top:var(--s2);font-size:1.0625rem}
+.pagehead .wrap{position:relative;padding-block:var(--s8) var(--s6)}
+.pagehead h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;line-height:1.05;letter-spacing:-.01em;margin-top:var(--s1)}
+.pagehead h1::after{content:"";display:block;width:56px;height:4px;border-radius:2px;background:var(--orange);margin-top:var(--s3)}
+.pagehead .tagline{font-family:var(--font-display);font-weight:500;font-size:clamp(1.25rem,2.4vw,1.625rem);line-height:1.35;color:#FFFFFF;max-width:34ch;margin-top:var(--s3);text-wrap:balance}
+.pagehead .desc{color:var(--on-dark-muted);max-width:60ch;margin-top:var(--s2);font-size:1.0625rem}
 .pagehead .eyebrow{color:#FFB37A}
-.crumb{font-size:.8125rem;color:var(--on-dark-muted);margin-bottom:var(--s2)}
+.jump{display:flex;flex-wrap:wrap;gap:var(--s1);margin-top:var(--s4)}
+.jump a{display:inline-flex;align-items:center;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid rgba(255,255,255,.35);color:#FFFFFF;text-decoration:none;font-family:var(--font-display);font-weight:500;font-size:.875rem;background:rgba(255,255,255,.06)}
+.jump a:hover{background:rgba(255,255,255,.16);border-color:#FFFFFF}
+.crumb{font-size:.8125rem;color:var(--on-dark-muted);margin-bottom:var(--s3)}
 .crumb a{color:#fff}
 
 /* service detail rows */
@@ -323,3 +328,6 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 .machines figcaption{font-size:.8125rem;color:#4B5563}
 @media (max-width:600px){.machines{grid-template-columns:1fr}}
 .co-logo{height:36px;width:auto;align-self:flex-start;margin-bottom:var(--s1);background:#FFFFFF;padding:4px 8px;border-radius:var(--r-sm)}
+
+/* keep anchored sections clear of the sticky header */
+section[id],article[id]{scroll-margin-top:calc(84px + env(safe-area-inset-top,0px))}
