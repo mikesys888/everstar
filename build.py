@@ -84,9 +84,23 @@ FONTS = (
 BASE_CSS = "body{margin:0}img{max-width:100%}[hidden]{display:none!important}\n"
 
 FOOTER = """<footer class="site">
-  <div class="wrap">
+  <div class="wrap foot-top">
+    <div class="foot-brand">
+      <a href="index.html" aria-label="Everstar home"><img class="foot-logo" src="img/logo-dark.svg" alt="everstar" width="190" height="65"></a>
+      <p>Insulation, scaffolding, coating, fire protection and refractory works for process and offshore plants since 2008.</p>
+    </div>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="index.html">Home</a><a href="services.html">Services</a><a href="projects.html">Projects</a>
+      <a href="about.html">About</a><a href="team.html">Our Team</a><a href="contact.html">Contact</a>
+    </nav>
+    <div class="foot-contact">
+      <b>Singapore</b>
+      <span>8 Boon Lay Way, #08-01, 8@Trade Hub 21, Singapore 609964</span>
+      <span>+65 6862 3563 · mail@everstar.com.sg</span>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
     <span>© 2026 Everstar Engineering &amp; Services Pte Ltd · BRN 200819367H</span>
-    <span>+65 6862 3563 · mail@everstar.com.sg</span>
     <span>Singapore · Malaysia · Indonesia</span>
   </div>
 </footer>"""

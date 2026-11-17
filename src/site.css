@@ -203,7 +203,17 @@ form.enq textarea{min-height:96px;resize:vertical}
 @media (max-width:600px){.c-grid{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
 
 footer.site{background:var(--green-deep);color:var(--on-dark-muted);font-size:.8125rem;border-top:1px solid rgba(255,255,255,.12)}
-footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--s2);justify-content:space-between}
+.foot-top{display:grid;grid-template-columns:1.4fr 1fr 1.2fr;gap:var(--s6);padding-block:var(--s8) var(--s6)}
+.foot-top > *{min-width:0}
+.foot-logo{height:72px;width:auto;display:block}
+.foot-brand p{margin-top:var(--s2);max-width:40ch;font-size:.875rem;line-height:1.6}
+.foot-links{display:grid;grid-template-columns:1fr 1fr;gap:var(--s1) var(--s3);align-content:start}
+.foot-links a{color:#FFFFFF;text-decoration:none;font-weight:600;font-size:.875rem;min-height:32px;display:flex;align-items:center}
+.foot-links a:hover{color:#FFB37A}
+.foot-contact{display:flex;flex-direction:column;gap:6px;font-size:.875rem}
+.foot-contact b{color:#FFFFFF;font-family:var(--font-display)}
+.foot-bottom{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--s2);justify-content:space-between;border-top:1px solid rgba(255,255,255,.12)}
+@media (max-width:860px){.foot-top{grid-template-columns:1fr;gap:var(--s4)}}
 
 /* sub-page banner */
 .pagehead{position:relative;color:var(--on-dark);background:#0B2A1A center/cover no-repeat}
