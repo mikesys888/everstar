@@ -295,6 +295,7 @@ form.enq button:disabled{opacity:.7;cursor:wait}
 .member{display:flex;align-items:center;gap:12px;position:relative}
 .member::before{content:"";position:absolute;left:calc(-1 * var(--s3) - 2px);top:50%;width:calc(var(--s3) - 4px);height:2px;background:var(--line)}
 .member .pc-text b{font-size:.9375rem}
+@media (min-width:821px){.org-depts > .dept:first-child{grid-row:span 2}}
 @media (max-width:1100px){.org-depts{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:820px){.org-depts{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:540px){.org-depts{grid-template-columns:1fr}}
@@ -345,9 +346,9 @@ form.enq button:disabled{opacity:.7;cursor:wait}
     </div>
 <div class="org" role="group" aria-label="Organisation chart">
 <div class="org-top">
-<div class="leader"><img class="av av-lg" src="img/team/ole-lars-oye.jpg" alt="" width="192" height="192" loading="lazy"><span class="pc-text"><b>Ole Lars Oye</b><span>Chief Executive Officer</span></span></div>
+<div class="leader"><img class="av av-lg" src="img/team/ole-lars-oye.jpg" alt="" width="192" height="192"><span class="pc-text"><b>Ole Lars Oye</b><span>Chief Executive Officer</span></span></div>
 <span class="org-vline" aria-hidden="true"></span>
-<div class="leader"><img class="av av-lg" src="img/team/p-prabhu.jpg" alt="" width="192" height="192" loading="lazy"><span class="pc-text"><b>P. Prabhu</b><span>Chief Operating Officer &amp; Director</span></span></div>
+<div class="leader"><img class="av av-lg" src="img/team/p-prabhu.jpg" alt="" width="192" height="192"><span class="pc-text"><b>P. Prabhu</b><span>Chief Operating Officer &amp; Director</span></span></div>
 <span class="org-vline" aria-hidden="true"></span>
 <span class="org-hub">7 teams · 29 people</span>
 </div>
