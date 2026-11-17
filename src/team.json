@@ -1,0 +1,69 @@
+{
+  "_note": "Organisation chart data, from 'Org Chart with Hp and email 16 NOV 2026.pptx'. Photos live in img/team/<photo>.jpg (square, 192px). Leave photo empty to show initials. Run python build.py after editing.",
+  "leaders": [
+    { "name": "Ole Lars Oye", "role": "Chief Executive Officer", "photo": "ole-lars-oye" },
+    { "name": "P. Prabhu", "role": "Chief Operating Officer & Director", "photo": "p-prabhu" }
+  ],
+  "departments": [
+    {
+      "name": "Projects",
+      "lead": { "name": "Mathan", "role": "Senior Project Manager (PCM)", "photo": "mathan" },
+      "members": [
+        { "name": "Anand", "role": "Project Manager", "photo": "anand" },
+        { "name": "Seeni", "role": "Site Manager", "photo": "seeni" },
+        { "name": "Mathaikutty", "role": "Site Manager", "photo": "mathaikutty" },
+        { "name": "Munusamy", "role": "Site Manager", "photo": "munusamy" },
+        { "name": "Sisubalan", "role": "Store In-charge", "photo": "sisubalan" },
+        { "name": "Marithasan", "role": "Logistics In-charge", "photo": "marithasan" },
+        { "name": "Sneha", "role": "Admin Executive", "photo": "sneha" }
+      ]
+    },
+    {
+      "name": "Marine & Offshore",
+      "lead": { "name": "S. Raja", "role": "Project Manager, Marine & Offshore", "photo": "s-raja" },
+      "members": [
+        { "name": "Dharmaraj", "role": "Site Supervisor", "photo": "dharmaraj" },
+        { "name": "Kumaran", "role": "Marine Engineer", "photo": "kumaran" }
+      ]
+    },
+    {
+      "name": "Rangooli Engineering",
+      "lead": { "name": "Ilayaraja", "role": "Assistant Site Manager", "photo": "ilayaraja" },
+      "members": [
+        { "name": "Aadithiyan", "role": "Project Engineer", "photo": "aadithiyan" },
+        { "name": "Muruganantham", "role": "Senior Supervisor", "photo": "muruganantham" }
+      ]
+    },
+    {
+      "name": "Malaysia",
+      "lead": { "name": "Kumar", "role": "Operations Manager, Malaysia", "photo": "kumar" },
+      "members": []
+    },
+    {
+      "name": "Procurement & Estimating",
+      "lead": { "name": "Henry", "role": "Procurement Officer", "photo": "henry" },
+      "members": [
+        { "name": "Koay Bee Buan", "role": "Procurement Executive", "photo": "koay-bee-buan" },
+        { "name": "Batoy", "role": "Estimation Engineer", "photo": "batoy" },
+        { "name": "Lakshmi", "role": "Assistant Estimation Engineer", "photo": "lakshmi" },
+        { "name": "Doreen", "role": "Business Development Executive", "photo": "" }
+      ]
+    },
+    {
+      "name": "Finance, HR & Admin",
+      "lead": { "name": "Sally", "role": "Accountant", "photo": "sally" },
+      "members": [
+        { "name": "Azah", "role": "Accounts Assistant", "photo": "azah" },
+        { "name": "Eny", "role": "HR Executive", "photo": "eny" },
+        { "name": "Rathna", "role": "HR Admin Executive", "photo": "rathna" },
+        { "name": "Melissa", "role": "Admin Executive", "photo": "melissa" },
+        { "name": "Krishna", "role": "IT Support", "photo": "krishna" }
+      ]
+    },
+    {
+      "name": "Workplace Safety & Health",
+      "lead": { "name": "Md Ismail", "role": "WSH Officer", "photo": "md-ismail" },
+      "members": []
+    }
+  ]
+}
