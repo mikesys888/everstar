@@ -3,7 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Everstar Engineering &amp; Services</title>
+<title>Everstar Engineering &amp; Services | Insulation, Scaffolding, Coating &amp; Fire Protection</title>
+<meta name="description" content="Singapore contractor since 2008 for insulation, access and scaffolding, surface treatment and coating, passive fire protection and refractory works for onshore plants and offshore projects.">
+<meta property="og:title" content="Everstar Engineering &amp; Services | Insulation, Scaffolding, Coating &amp; Fire Protection">
+<meta property="og:description" content="Singapore contractor since 2008 for insulation, access and scaffolding, surface treatment and coating, passive fire protection and refractory works for onshore plants and offshore projects.">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,12 +62,13 @@ a{color:inherit}
 /* header */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
 header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
-header.site .wrap{display:flex;align-items:center;gap:var(--s3);min-height:72px}
+header.site .wrap{display:flex;align-items:center;gap:var(--s2);min-height:76px}
 .logo{display:block;flex:none}
 .logo img{height:40px;width:auto;display:block}
-nav.main{display:flex;gap:var(--s3);margin-left:auto;flex-wrap:wrap}
-nav.main a{text-decoration:none;font-weight:600;font-size:.9375rem;color:var(--text);padding-block:var(--s1)}
-nav.main a:hover{color:var(--green-ink)}
+nav.main{display:flex;gap:6px;margin-left:auto;align-items:center}
+.nav-btn{display:inline-flex;align-items:center;justify-content:center;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--text);font-family:var(--font-display);font-weight:500;font-size:.875rem;text-decoration:none;white-space:nowrap;transition:background-color .15s,border-color .15s,color .15s}
+.nav-btn:hover{border-color:var(--green);color:var(--green-ink);background:var(--bg-alt)}
+.nav-btn:active{transform:translateY(1px)}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);min-height:44px;padding:0 var(--s3);border-radius:var(--r-sm);font-family:var(--font-display);font-weight:600;font-size:.9375rem;text-decoration:none;border:2px solid transparent;cursor:pointer}
 .btn.primary{background:var(--orange);color:#1A0D02}
 .btn.primary:hover{background:#FF8A33}
@@ -70,15 +76,14 @@ nav.main a:hover{color:var(--green-ink)}
 .btn.ghost:hover{background:rgba(255,255,255,.1)}
 .btn.green{background:var(--green);color:#fff}
 .btn.green:hover{background:var(--green-ink)}
-nav.main a[aria-current="page"]{color:var(--green-ink);box-shadow:inset 0 -3px 0 var(--orange)}
+.nav-btn[aria-current="page"]{background:var(--green);border-color:var(--green);color:#FFFFFF}
+.nav-btn[aria-current="page"]:hover{background:var(--green-ink);border-color:var(--green-ink);color:#FFFFFF}
 details.menu{display:none;position:relative}
-details.menu summary{list-style:none;cursor:pointer;min-height:44px;min-width:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:var(--r-sm);font-weight:600;font-size:.875rem;padding:0 12px}
+details.menu summary{list-style:none;cursor:pointer;min-height:44px;min-width:44px;display:grid;place-items:center;border:1px solid var(--line);border-radius:999px;font-family:var(--font-display);font-weight:500;font-size:.875rem;padding:0 16px;background:var(--surface)}
 details.menu summary::-webkit-details-marker{display:none}
-details.menu nav{position:absolute;right:0;top:calc(100% + 8px);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:0 12px 32px rgba(0,0,0,.18);display:flex;flex-direction:column;min-width:220px;padding:var(--s1)}
-details.menu nav a{text-decoration:none;padding:12px var(--s2);font-weight:600;border-radius:var(--r-sm)}
-details.menu nav a:hover{background:var(--bg-alt)}
-details.menu nav a[aria-current="page"]{color:var(--green-ink)}
-@media (max-width:900px){nav.main{display:none} details.menu{display:block;margin-left:auto}}
+details.menu nav{position:absolute;right:0;top:calc(100% + 8px);background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:0 12px 32px rgba(0,0,0,.18);display:flex;flex-direction:column;gap:6px;min-width:220px;padding:var(--s1)}
+details.menu nav .nav-btn{justify-content:flex-start;min-height:44px;padding:0 var(--s2)}
+@media (max-width:1080px){nav.main{display:none} details.menu{display:block;margin-left:auto}}
 @media (max-width:480px){header.site .btn.primary{display:none}}
 
 /* hero */
@@ -342,21 +347,22 @@ form.enq button:disabled{opacity:.7;cursor:wait}
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Everstar home"><img src="img/logo.svg" alt="everstar" width="117" height="40"></a>
     <nav class="main" aria-label="Main">
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="team.html">Our Team</a>
-      <a href="contact.html">Contact</a>
+      <a class="nav-btn" href="index.html" aria-current="page">Home</a>
+      <a class="nav-btn" href="services.html">Services</a>
+      <a class="nav-btn" href="projects.html">Projects</a>
+      <a class="nav-btn" href="about.html">About</a>
+      <a class="nav-btn" href="team.html">Our Team</a>
+      <a class="nav-btn" href="contact.html">Contact</a>
     </nav>
     <details class="menu">
       <summary aria-label="Open menu">Menu</summary>
       <nav aria-label="Main (mobile)">
-      <a href="index.html" aria-current="page">Home</a>
-      <a href="services.html">Services</a>
-      <a href="projects.html">Projects</a>
-      <a href="about.html">About</a>
-      <a href="team.html">Our Team</a>
-      <a href="contact.html">Contact</a>
+      <a class="nav-btn" href="index.html" aria-current="page">Home</a>
+      <a class="nav-btn" href="services.html">Services</a>
+      <a class="nav-btn" href="projects.html">Projects</a>
+      <a class="nav-btn" href="about.html">About</a>
+      <a class="nav-btn" href="team.html">Our Team</a>
+      <a class="nav-btn" href="contact.html">Contact</a>
       </nav>
     </details>
     <a class="btn primary" href="contact.html">Request a quote</a>
@@ -462,7 +468,6 @@ form.enq button:disabled{opacity:.7;cursor:wait}
       <div class="client"><img src="img/clients/sembcorp.png" alt="Sembcorp" loading="lazy"></div>
       <div class="client"><img src="img/clients/seatrium.png" alt="Seatrium" loading="lazy"></div>
       <div class="client"><img src="img/clients/equinor.png" alt="Equinor" loading="lazy"></div>
-      <div class="client"><img src="img/clients/petronas.png" alt="PETRONAS" loading="lazy"></div>
       <div class="client"><img src="img/clients/sbm-offshore.png" alt="SBM Offshore" loading="lazy"></div>
       <div class="client"><img src="img/clients/modec.png" alt="MODEC" loading="lazy"></div>
       <div class="client"><img src="img/clients/golar-lng.png" alt="Golar LNG" loading="lazy"></div>
@@ -480,7 +485,7 @@ form.enq button:disabled{opacity:.7;cursor:wait}
     <div class="teasers">
       <a class="teaser" href="services.html#cui"><h3>CUI engineering</h3><p>Coating, insulation and jacketing specified as one system, with optimised designs for LNG and cryogenic service.</p><span class="go">How we design out CUI →</span></a>
       <a class="teaser" href="about.html#facilities"><h3>Own fabrication</h3><p>45,000 sq ft of warehouse, fabrication and scaffold yards in Singapore and Johor, with CNC sheet-metal machines.</p><span class="go">Our facilities →</span></a>
-      <a class="teaser" href="about.html#team"><h3>Certified people</h3><p>ISO 9001, ISO 45001, bizSAFE Star and PETRONAS. About 50 NORSOK-certified staff, plus MoM-certified scaffolders.</p><span class="go">Our team →</span></a>
+      <a class="teaser" href="about.html#team"><h3>Certified people</h3><p>ISO 9001, ISO 45001 and bizSAFE Star. About 50 NORSOK-certified staff, plus MoM-certified scaffolders.</p><span class="go">Our team →</span></a>
     </div>
   </div>
 </section>
@@ -489,14 +494,13 @@ form.enq button:disabled{opacity:.7;cursor:wait}
   <div class="wrap">
     <div class="head" style="margin-bottom:var(--s3)">
       <div class="eyebrow">Certified</div>
-      <h2 class="h2" id="cert-h" style="font-size:1.5rem">ISO 9001, ISO 45001, bizSAFE Star, PETRONAS and ASPRI</h2>
+      <h2 class="h2" id="cert-h" style="font-size:1.5rem">ISO 9001, ISO 45001, bizSAFE Star and ASPRI member</h2>
     </div>
     <a class="logostrip" href="about.html#certifications" aria-label="View our certifications">
       <img src="img/certs/iso-9001.png" alt="ISO 9001" width="160" height="200">
       <img src="img/certs/iso-45001.png" alt="ISO 45001" width="160" height="200">
       <img src="img/certs/bizsafe-star.png" alt="bizSAFE Star" width="308" height="200">
       <img class="wide" src="img/certs/aspri.png" alt="ASPRI" width="465" height="120">
-      <img src="img/certs/petronas.png" alt="PETRONAS" width="196" height="200">
     </a>
   </div>
 </section>

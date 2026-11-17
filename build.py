@@ -3,6 +3,7 @@
 Each file in src/pages/ starts with three header lines:
     title: Page title
     nav: home|services|projects|about|team|contact
+    description: One-sentence summary for search results (optional)
     ---
 followed by the page's <main> content. This script wraps every page with the
 shared header, footer, stylesheet and script, and writes <name>.html here.
@@ -21,6 +22,7 @@ CSS = (SRC / "site.css").read_text(encoding="utf-8")
 TEAM = json.loads((SRC / "team.json").read_text(encoding="utf-8"))
 
 NAV = [
+    ("home", "index.html", "Home"),
     ("services", "services.html", "Services"),
     ("projects", "projects.html", "Projects"),
     ("about", "about.html", "About"),
@@ -127,7 +129,7 @@ def links(active):
     out = []
     for key, href, label in NAV:
         cur = ' aria-current="page"' if key == active else ""
-        out.append(f'<a href="{href}"{cur}>{label}</a>')
+        out.append(f'<a class="nav-btn" href="{href}"{cur}>{label}</a>')
     return "\n      ".join(out)
 
 
@@ -141,7 +143,6 @@ def header(active):
     <details class="menu">
       <summary aria-label="Open menu">Menu</summary>
       <nav aria-label="Main (mobile)">
-      <a href="index.html"{' aria-current="page"' if active == 'home' else ''}>Home</a>
       {links(active)}
       </nav>
     </details>
@@ -155,10 +156,16 @@ def build(path):
     head, body = raw.split("\n---\n", 1)
     meta = dict(line.split(":", 1) for line in head.strip().splitlines())
     title = meta["title"].strip()
+    desc = meta.get("description", "").strip()
     active = meta["nav"].strip()
     body = body.replace("{{ORG_CHART}}", org_chart())
     parts = [
-        f"<title>{title}</title>",
+        f"<title>{escape(title)}</title>",
+        f'<meta name="description" content="{escape(desc, quote=True)}">',
+        f'<meta property="og:title" content="{escape(title, quote=True)}">',
+        f'<meta property="og:description" content="{escape(desc, quote=True)}">',
+        '<meta property="og:type" content="website">',
+        '<link rel="icon" href="img/favicon.svg" type="image/svg+xml">',
         '<meta name="claude:viewport-fit-sides" content="cover">',
         FONTS,
         f"<style>\n{BASE_CSS}{CSS}</style>",
