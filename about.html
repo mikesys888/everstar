@@ -53,9 +53,6 @@ a{color:inherit}
 .lede{color:var(--muted);max-width:62ch;margin-top:var(--s2);font-size:1.0625rem}
 .head{margin-bottom:var(--s6)}
 
-/* draft notice */
-.draft{background:var(--orange);color:#1A0D02;font-size:.8125rem;font-weight:600}
-.draft .wrap{padding-block:6px;text-align:center}
 
 /* header */
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
@@ -266,8 +263,6 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
 </style>
 </head>
 <body>
-<div class="draft"><div class="wrap">Draft for review. Not the live website. Content taken from the July 2025 company presentation, business card and everstar.sg.</div></div>
-
 <header class="site">
   <div class="wrap">
     <a class="logo" href="index.html" aria-label="Everstar home"><img src="img/logo.svg" alt="everstar" width="117" height="40"></a>
@@ -435,7 +430,7 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
     var name = document.getElementById('f-name'), email = document.getElementById('f-email');
     if (!name.value.trim()) { msg.textContent = 'Enter your name.'; name.focus(); return; }
     if (!email.checkValidity() || !email.value.trim()) { msg.textContent = 'Enter a valid work email, like name@company.com.'; email.focus(); return; }
-    msg.textContent = 'Draft only: this form is not connected yet, so nothing was sent.';
+    msg.textContent = 'Online enquiries are not connected yet, so nothing was sent. Please email mail@everstar.com.sg or call +65 6862 3563.';
   });
 })();
 </script>

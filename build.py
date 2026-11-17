@@ -31,11 +31,6 @@ FONTS = (
 
 BASE_CSS = "body{margin:0}img{max-width:100%}[hidden]{display:none!important}\n"
 
-DRAFT = (
-    '<div class="draft"><div class="wrap">Draft for review. Not the live website. '
-    "Content taken from the July 2025 company presentation, business card and everstar.sg.</div></div>"
-)
-
 FOOTER = """<footer class="site">
   <div class="wrap">
     <span>© 2026 Everstar Engineering &amp; Services Pte Ltd · BRN 200819367H</span>
@@ -54,7 +49,7 @@ FORM_JS = """<script>
     var name = document.getElementById('f-name'), email = document.getElementById('f-email');
     if (!name.value.trim()) { msg.textContent = 'Enter your name.'; name.focus(); return; }
     if (!email.checkValidity() || !email.value.trim()) { msg.textContent = 'Enter a valid work email, like name@company.com.'; email.focus(); return; }
-    msg.textContent = 'Draft only: this form is not connected yet, so nothing was sent.';
+    msg.textContent = 'Online enquiries are not connected yet, so nothing was sent. Please email mail@everstar.com.sg or call +65 6862 3563.';
   });
 })();
 </script>"""
@@ -98,9 +93,8 @@ def build(path):
         '<meta name="claude:viewport-fit-sides" content="cover">',
         FONTS,
         f"<style>\n{BASE_CSS}{CSS}</style>",
-        "",
-        DRAFT,
-        "",
+        "</head>",
+        "<body>",
         header(active),
         "",
         body.strip(),
@@ -111,13 +105,13 @@ def build(path):
         "",
     ]
     page = "\n".join(parts)
-    if True:  # every page is a complete document, so it works on any static host
-        page = (
-            '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
-            '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
-            + page.replace("\n\n" + DRAFT, "\n</head>\n<body>\n" + DRAFT, 1)
-            + "</body>\n</html>\n"
-        )
+    # Every page is a complete document, so it works on any static host.
+    page = (
+        '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
+        '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
+        + page
+        + "</body>\n</html>\n"
+    )
     out = ROOT / f"{path.stem}.html"
     out.write_text(page, encoding="utf-8")
     print(f"built {out.name} ({len(page):,} bytes)")
