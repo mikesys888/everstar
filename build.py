@@ -111,8 +111,7 @@ def build(path):
         "",
     ]
     page = "\n".join(parts)
-    if path.stem != "index":
-        # Only the main page gets a document skeleton added at publish time.
+    if True:  # every page is a complete document, so it works on any static host
         page = (
             '<!doctype html>\n<html lang="en">\n<head>\n<meta charset="utf-8">\n'
             '<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">\n'
