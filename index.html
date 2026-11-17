@@ -157,10 +157,19 @@ td.owner{font-weight:600}
 .fact b{display:block;font-family:var(--font-display);font-size:1.5rem;font-weight:600;font-variant-numeric:tabular-nums}
 .fact span{font-size:.8125rem;color:var(--muted)}
 .plain{margin:var(--s3) 0 0;padding-left:1.1em;color:var(--muted);display:flex;flex-direction:column;gap:4px}
-.certs{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s4)}
-.cert{border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s2) var(--s3);background:var(--surface)}
-.cert b{font-family:var(--font-display);font-weight:600;display:block}
-.cert span{font-size:.8125rem;color:var(--muted);font-family:var(--font-mono)}
+.certs{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--s3)}
+.cert{border:1px solid var(--line);border-radius:var(--r-md);background:var(--surface);display:flex;flex-direction:column;overflow:hidden;min-width:0}
+.cert-logo{background:#FFFFFF;height:136px;display:grid;place-items:center;padding:var(--s2);border-bottom:1px solid var(--line)}
+.cert-logo img{max-height:100px;width:auto;max-width:100%;object-fit:contain}
+.cert > div:last-child{padding:var(--s2) var(--s3) var(--s3);display:flex;flex-direction:column;gap:4px}
+.cert b{font-family:var(--font-display);font-weight:600;font-size:1.0625rem}
+.cert p{font-size:.9rem;color:var(--muted)}
+.cert span{font-size:.75rem;color:var(--muted);font-family:var(--font-mono);margin-top:var(--s1)}
+@media (max-width:1000px){.certs{grid-template-columns:1fr 1fr}}
+/* logo strip */
+.logostrip{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:var(--s3) var(--s6);background:#FFFFFF;border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s3)}
+.logostrip img{height:64px;width:auto}
+.logostrip img.wide{height:40px}
 @media (max-width:900px){.cap-grid{grid-template-columns:1fr;gap:var(--s6)}}
 @media (max-width:480px){.facts{grid-template-columns:1fr}.certs{grid-template-columns:1fr}}
 
@@ -380,6 +389,21 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
       <a class="teaser" href="about.html#facilities"><h3>Own fabrication</h3><p>45,000 sq ft of warehouse, fabrication and scaffold yards in Singapore and Johor, with CNC sheet-metal machines.</p><span class="go">Our facilities →</span></a>
       <a class="teaser" href="about.html#team"><h3>Certified people</h3><p>ISO 9001, ISO 45001 and bizSAFE Star. About 50 NORSOK-certified staff, plus MoM-certified scaffolders.</p><span class="go">Our team →</span></a>
     </div>
+  </div>
+</section>
+
+<section class="band alt" aria-labelledby="cert-h" style="padding-block:var(--s8)">
+  <div class="wrap">
+    <div class="head" style="margin-bottom:var(--s3)">
+      <div class="eyebrow">Certified</div>
+      <h2 class="h2" id="cert-h" style="font-size:1.5rem">ISO 9001, ISO 45001, bizSAFE Star and ASPRI member</h2>
+    </div>
+    <a class="logostrip" href="about.html#certifications" aria-label="View our certifications">
+      <img src="img/certs/iso-9001.png" alt="ISO 9001" width="160" height="200">
+      <img src="img/certs/iso-45001.png" alt="ISO 45001" width="160" height="200">
+      <img src="img/certs/bizsafe-star.png" alt="bizSAFE Star" width="308" height="200">
+      <img class="wide" src="img/certs/aspri.png" alt="ASPRI" width="465" height="120">
+    </a>
   </div>
 </section>
 
