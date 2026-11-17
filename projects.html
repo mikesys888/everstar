@@ -269,6 +269,10 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
 .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)}
 .split > *{min-width:0}
 @media (max-width:900px){.split{grid-template-columns:1fr;gap:var(--s6)}}
+
+/* spam trap, hidden from people */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+form.enq button:disabled{opacity:.7;cursor:wait}
 </style>
 </head>
 <body>
@@ -379,13 +383,31 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
 (function () {
   var f = document.getElementById('enq');
   if (!f) return;
+  var FALLBACK = 'Please email mail@everstar.com.sg or call +65 6862 3563.';
   f.addEventListener('submit', function (e) {
     e.preventDefault();
     var msg = document.getElementById('form-msg');
+    var btn = document.getElementById('f-send');
     var name = document.getElementById('f-name'), email = document.getElementById('f-email');
     if (!name.value.trim()) { msg.textContent = 'Enter your name.'; name.focus(); return; }
     if (!email.checkValidity() || !email.value.trim()) { msg.textContent = 'Enter a valid work email, like name@company.com.'; email.focus(); return; }
-    msg.textContent = 'Online enquiries are not connected yet, so nothing was sent. Please email mail@everstar.com.sg or call +65 6862 3563.';
+    var data = {};
+    new FormData(f).forEach(function (v, k) { data[k] = v; });
+    btn.disabled = true; btn.textContent = 'Sending…'; msg.textContent = '';
+    fetch('/api/enquiry', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
+      .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+      .then(function (out) {
+        if (out.ok) {
+          f.reset();
+          msg.textContent = 'Thank you. Your enquiry has been sent and our team will reply by email.';
+        } else if (out.error && out.error.indexOf(' ') > -1) {
+          msg.textContent = out.error;
+        } else {
+          msg.textContent = 'Sorry, your enquiry could not be sent. ' + FALLBACK;
+        }
+      })
+      .catch(function () { msg.textContent = 'Sorry, your enquiry could not be sent. Check your connection, or ' + FALLBACK.charAt(0).toLowerCase() + FALLBACK.slice(1); })
+      .then(function () { btn.disabled = false; btn.textContent = 'Send enquiry'; });
   });
 })();
 </script>

@@ -257,3 +257,7 @@ footer.site .wrap{padding-block:var(--s3);display:flex;flex-wrap:wrap;gap:var(--
 .split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8)}
 .split > *{min-width:0}
 @media (max-width:900px){.split{grid-template-columns:1fr;gap:var(--s6)}}
+
+/* spam trap, hidden from people */
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+form.enq button:disabled{opacity:.7;cursor:wait}
