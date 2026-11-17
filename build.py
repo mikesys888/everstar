@@ -36,7 +36,7 @@ def initials(name):
 
 def avatar(p, size):
     if p.get("photo"):
-        return (f'<img class="av av-{size}" src="img/team/{escape(p["photo"])}.jpg" '
+        return (f'<img class="av av-{size}" src="img/team/{escape(p["photo"])}.jpg?v=2" '
                 f'alt="" width="192" height="192"' + ('' if size == 'lg' else ' loading="lazy"') + '>')
     return f'<span class="av av-{size} av-initials" aria-hidden="true">{escape(initials(p["name"]))}</span>'
 
